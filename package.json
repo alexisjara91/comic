@@ -34,5 +34,14 @@
     "@ionic/app-scripts": "2.1.3",
     "typescript": "2.3.4"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexisjara91/comic.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexisjara91/comic/issues"
+  }
 }
