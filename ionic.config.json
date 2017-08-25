@@ -1,6 +1,11 @@
 {
   "name": "comic",
   "app_id": "",
-  "type": "ionic-angular",
-  "integrations": {}
+  "type": "ionic1",
+  "integrations": {
+    "gulp": {}
+  },
+  "watchPatterns": [
+    "scss/**/*"
+  ]
 }
