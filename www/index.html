@@ -7,21 +7,8 @@
 
     <link rel="manifest" href="manifest.json">
 
-    <!-- un-comment this code to enable service worker
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(() => console.log('service worker installed'))
-          .catch(err => console.log('Error', err));
-      }
-    </script>-->
-
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -34,39 +21,19 @@
   </head>
   <body ng-app="starter" ng-controller="ApiMarvel">
     <ion-pane>
-      <ion-header-bar class="bar-stable">
+      <ion-nav-bar class="bar-stable">
+        <ion-nav-back-button></ion-nav-back-button>
+      </ion-nav-bar>
+     <!--  <ion-header-bar class="bar-stable">
           <h1 class="title">Marvel Comic's</h1>  
-      </ion-header-bar>
-     <!--  <ion-header-bar class="bar bar-subheader item-input-inset">
+      </ion-header-bar> -->
+      <!-- <ion-header-bar class="bar bar-subheader item-input-inset">
         <label class="item-input-wrapper">
             <i class="icon ion-search placeholder-icon"></i>
             <input id="searchKey" type="search" placeholder="Search" ng-model="search.$" autocorrect="off" >
         </label>
       </ion-header-bar> -->
-      <ion-content>
-      <div ng-repeat="comic in comics">
-        <!-- {{comic.title}} -->
-        <div class="list">
-          <a class="item item-thumbnail-left" href="#">
-          <img src="{{comic.thumbnail.path+'/portrait_medium.jpg'}}">
-          <h2>{{comic.title}}</h2>
-            <p>{{comic.id}}</p>
-         </a>
-        </div>
-      </div>
-      <ion-infinite-scroll
-        immediate-check="false"           
-        on-infinite="cargarComics()"
-        distance="1%">
-       </ion-infinite-scroll>
-      <!-- <div class="list">
-        <a class="item item-thumbnail-left" href="#">
-          <img src="cover.jpg">
-          <h2>Pretty Hate Machine</h2>
-            <p>Nine Inch Nails</p>
-        </a>
-      </div> -->
-      </ion-content>
+      <ion-nav-view animation="slide-left-right"></ion-nav-view>
     </ion-pane>
 
   </body>

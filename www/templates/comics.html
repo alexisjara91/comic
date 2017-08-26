@@ -1,0 +1,19 @@
+<ion-view view-title="Marvel's Comics">
+   <ion-content>
+      <div ng-repeat="comic in comics">
+        <!-- {{comic.title}} -->
+        <div class="list">
+          <a class="item item-thumbnail-left" href="/#/descripcion">
+          <img src="{{comic.thumbnail.path+'/portrait_medium.jpg'}}">
+          <h2>{{comic.title}}</h2>
+            <p>{{comic.id}}</p>
+         </a>
+        </div>
+      </div>
+      <ion-infinite-scroll
+        immediate-check="false"           
+        on-infinite="cargarComics()"
+        distance="1%">
+       </ion-infinite-scroll>
+    </ion-content>   
+</ion-view>

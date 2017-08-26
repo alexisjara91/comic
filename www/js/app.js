@@ -1,11 +1,23 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
 (function(){
 
 var app = angular.module('starter', ['ionic'])
+
+//Rutas
+
+app.config(function($stateProvider,$urlRouterProvider) {
+  $stateProvider.state('comics', {
+    url:'/comics',
+    templateUrl:'templates/comics.html'
+  });
+  $stateProvider.state('descripcion',{
+    url:'/descripcion',
+    templateUrl:'templates/descripcion.html'
+  });
+  $urlRouterProvider.otherwise('/comics');
+});
+
+//Controlador Comics Principal
 
 app.controller('ApiMarvel', function($scope,$http){
 
@@ -42,12 +54,11 @@ $http.get(url,{params:params2})
   });
 
 console.log(offset);
-
 }
 
-
-  
 });
+
+//RUN
 
 app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
