@@ -1,26 +1,33 @@
-Ionic App Base
-==============
+ionic-heroku-button
+===================
 
-A starting project for Ionic that optionally supports using custom SCSS.
+A one-click Ionic app template for Heroku
 
-## Using this project
+## Deploying locally
 
-We recommend using the [Ionic CLI](https://github.com/ionic-team/ionic-cli) to create new Ionic projects that are based on this project but use a ready-made starter template.
+Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
 
-For example, to start a new Ionic project with the default tabs interface, make sure the `ionic` utility is installed:
-
-```bash
-$ npm install -g ionic cordova
+```sh
+git clone git@github.com:driftyco/ionic-heroku-button.git # or clone your own fork
+cd ionic-heroku-button
+npm install
+npm start
 ```
 
-Then run:
+Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-```bash
-$ ionic start myProject tabs --type=ionic1
+## Deploying to Heroku
+
+```
+heroku create
+git push heroku master
+heroku open
 ```
 
-More info on this can be found on the Ionic [Getting Started](https://ionicframework.com/getting-started) page and the [Ionic CLI](https://github.com/ionic-team/ionic-cli) repo.
+Alternatively, you can deploy your own copy of the app using this button:
 
-## Issues
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-Issues have been disabled on this repo. If you do find an issue or have a question, consider posting it on the [Ionic Forum](https://forum.ionicframework.com/). If there is truly an error, follow our guidelines for [submitting an issue](https://ionicframework.com/submit-issue/) to the main Ionic repository.
+## Documentation
+
+For more information about using Heroku, check out https://devcenter.heroku.com/

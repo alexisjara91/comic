@@ -1,26 +1,9 @@
 {
-  "name": "comic",
+  "name": "ionic-heroku",
+  "description": "Ionic Node.js Heroku app",
   "version": "0.0.1",
-  "description": "An Ionic project",
-  "devDependencies": {
-    "gulp": "^3.5.6",
-    "gulp-clean-css": "^3.7.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-sass": "^3.1.0"
-  },
-  "main": "gulpfile.js",
-  "dependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexisjara91/comic.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alexisjara91/comic/issues"
-  },
-  "homepage": "https://github.com/alexisjara91/comic#readme"
+  "private": true,
+  "dependencies": {
+    "express": "~4.4.3"
+  }
 }
