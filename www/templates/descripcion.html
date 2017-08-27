@@ -1,5 +1,64 @@
-<ion-view view-title="Descripción de Comic">
-      <ion-content>
-      	Descripción
-      </ion-content>
-</ion-view>
+<div ng-controller="descripcioncomic">
+	<ion-view view-title="Descripción de Comic">
+    	<ion-content>	
+	     	<div class="list card">
+
+			  <div class="item item-avatar">
+			    <img src="{{comic.thumbnail.path+'/portrait_medium.jpg'}}">
+			    <h2>{{comic.title}}</h2>
+			    <p>{{comic.dates[0].date | date:"dd/MM/yyyy"}}</p>
+			  </div>
+
+			  <div class="item item-body">
+			  	<h2>Descripción</h2>
+			    <img class="full-image" src="{{comic.images[0].path+'/portrait_medium.jpg'}}">
+			    <p>
+			      {{comic.description}}
+			    </p>
+				<!--<p>
+			      <a href="#" class="subdued">1 Like</a>
+			      <a href="#" class="subdued">5 Comments</a>
+			    </p> -->
+			  </div>
+
+			  <div class="item item-body">
+			  	<h2>Personajes</h2>
+			  	<!-- <div class="item item-thumbnail-left" ng-repeat="character in comic.characters.items">
+		          <img src="{{character.thumbnail.path+'/portrait_medium.jpg'}}">
+		          <h2>{{character.name}}</h2>          
+         		</div> -->
+         		<ul>
+				    <li ng-repeat="character in comic.characters.items">{{character.name}}</li>
+				</ul>
+			  </div>
+
+			   <div class="item item-body">
+			  	<h2>Creadores</h2>
+			  	<!-- <div class="item item-thumbnail-left" ng-repeat="character in comic.characters.items">
+		          <img src="{{character.thumbnail.path+'/portrait_medium.jpg'}}">
+		          <h2>{{character.name}}</h2>          
+         		</div> -->
+         		<ul>
+				    <li ng-repeat="creator in comic.creators.items">{{creator.name}}</li>
+				</ul>
+			  </div>
+
+
+			</div>
+     	</ion-content>
+	 	<div class="tabs tabs-icon-left">
+			  <a class="tab-item">
+			    <i class="icon ion-home"></i>
+			    Home
+			  </a>
+			  <a class="tab-item">
+			    <i class="icon ion-star"></i>
+			    Favorites
+			  </a>
+			  <a class="tab-item">
+			    <i class="icon ion-gear-a"></i>
+			    Settings
+			  </a>
+		</div>
+	</ion-view>
+</div>

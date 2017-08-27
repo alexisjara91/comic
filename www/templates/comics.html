@@ -1,15 +1,12 @@
-<ion-view view-title="Marvel's Comics">
+<ion-view view-title="Lista de Comics">
    <ion-content>
-      <div ng-repeat="comic in comics">
-        <!-- {{comic.title}} -->
         <div class="list">
-          <a class="item item-thumbnail-left" href="/#/descripcion">
+          <a class="item item-thumbnail-left" href="/#/descripcion/{{comic.id}}" ng-repeat="comic in comics">
           <img src="{{comic.thumbnail.path+'/portrait_medium.jpg'}}">
           <h2>{{comic.title}}</h2>
-            <p>{{comic.id}}</p>
+            <p>{{comic.dates[0].date | date:"dd/MM/yyyy"}}</p>            
          </a>
         </div>
-      </div>
       <ion-infinite-scroll
         immediate-check="false"           
         on-infinite="cargarComics()"
