@@ -1,17 +1,10 @@
 
 (function(){
 
-var app = angular.module('starter', ['ionic'])
+var app = angular.module('starter', ['starter.comicstore','ionic'])
 
 
 var comics = [];
-
-
-function getComic(id){
-  return comics.filter(function(comic){
-    return comic.id == id;
-  })[0];
-}
 
 //Rutas
 
@@ -29,51 +22,56 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
 //Controlador Comics Principal
 
-app.controller('listacomics', function($scope,$http){
-
-var hash = '74ef215029a27e1e6e924356427c8c6d';
-var url = 'https://gateway.marvel.com/v1/public/comics?ts=1&apikey=d65e303cf9155ebe8b2221bc457c883f&hash=74ef215029a27e1e6e924356427c8c6d&orderBy=title';
+app.controller('listacomics', function($scope,$http,comicstore){
 
 $scope.comics = [];
-var offset = 0;
+$scope.offset = 0;
 
-$http.get(url)
-.success(function(promise){
-   angular.forEach(promise.data.results, function(comic){
+comicstore.getAll().then(
+    function(promise){
+      angular.forEach(promise.data.results, function(comic){
       $scope.comics.push(comic);
       comics.push(comic);
-   })
-  });
-  
+      })
+    }
+  );
+
 $scope.cargarComics = function() {
 
 var params2 = {};
 
-if ($scope.comics.length > 0) {
 
-  params2['offset'] = offset + 1 ;
-  offset = offset + 1 ;
+$scope.offset = $scope.offset+20;
+params2['offset'] = $scope.offset;
 
-}
 
-$http.get(url,{params:params2})
-.success(function(promise){
+
+comicstore.getNext(params2).then(
+  function(promise){
    angular.forEach(promise.data.results, function(comic){
       $scope.comics.push(comic);
       comics.push(comic);
    });
    $scope.$broadcast('scroll.infiniteScrollComplete');
   });
+
+
+
 }
 
 });
 
 //Controlador descripción
 
-app.controller('descripcioncomic',  function($scope,$state){
-  $scope.id = $state.params.id;
-  $scope.comic = getComic($scope.id);
-  console.log($scope.comic);
+app.controller('descripcioncomic', function($scope,$state,comicstore){
+
+  $scope.comic = {};
+
+  comicstore.getComic($state.params.id).then(
+    function(promise){
+        $scope.comic = promise.data.results[0];
+    }
+  );
 });
 
 //RUN
